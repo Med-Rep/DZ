@@ -67,15 +67,11 @@ export function DocumentComparison() {
   const [isComparing, setIsComparing] = useState(false);
 
   const {
-    isDocumentViewOpen,
-    isDownloadOpen,
-    isComparisonOpen,
-    selectedDocument,
-    comparisonDocuments,
+    modals,
     openDocumentView,
     openDownload,
     openComparison,
-    closeModals
+    closeModal
   } = useFunctionalModals();
 
   // Documents d'exemple
@@ -502,7 +498,7 @@ export function DocumentComparison() {
                 <Download className="w-4 h-4 mr-2" />
                 Télécharger le rapport
               </Button>
-              <Button variant="outline" onClick={() => openComparison(selectedDocuments)}>
+              <Button variant="outline" onClick={() => openComparison(selectedDocuments, 'documents')}>
                 <GitCompare className="w-4 h-4 mr-2" />
                 Comparaison détaillée
               </Button>
@@ -513,21 +509,21 @@ export function DocumentComparison() {
 
       {/* Modales */}
       <DocumentViewModal
-        isOpen={isDocumentViewOpen}
-        onClose={closeModals}
-        document={selectedDocument}
+        isOpen={modals.documentView.isOpen}
+        onClose={() => closeModal('documentView')}
+        document={modals.documentView.document}
       />
 
       <DownloadModal
-        isOpen={isDownloadOpen}
-        onClose={closeModals}
-        documents={comparisonDocuments}
+        isOpen={modals.download.isOpen}
+        onClose={() => closeModal('download')}
+        documents={modals.download.document}
       />
 
       <ComparisonModal
-        isOpen={isComparisonOpen}
-        onClose={closeModals}
-        documents={comparisonDocuments}
+        isOpen={modals.comparison.isOpen}
+        onClose={() => closeModal('comparison')}
+        documents={modals.comparison.items}
       />
     </div>
   );
