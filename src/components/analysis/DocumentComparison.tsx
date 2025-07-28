@@ -508,23 +508,30 @@ export function DocumentComparison() {
       )}
 
       {/* Modales */}
-      <DocumentViewModal
-        isOpen={modals.documentView.isOpen}
-        onClose={() => closeModal('documentView')}
-        document={modals.documentView.document}
-      />
+      {modals.documentView.document && (
+        <DocumentViewModal
+          isOpen={modals.documentView.isOpen}
+          onClose={() => closeModal('documentView')}
+          document={modals.documentView.document}
+        />
+      )}
 
-      <DownloadModal
-        isOpen={modals.download.isOpen}
-        onClose={() => closeModal('download')}
-        documents={modals.download.document}
-      />
+      {modals.download.document && (
+        <DownloadModal
+          isOpen={modals.download.isOpen}
+          onClose={() => closeModal('download')}
+          document={modals.download.document}
+        />
+      )}
 
-      <ComparisonModal
-        isOpen={modals.comparison.isOpen}
-        onClose={() => closeModal('comparison')}
-        documents={modals.comparison.items}
-      />
+      {modals.comparison.items.length > 0 && (
+        <ComparisonModal
+          isOpen={modals.comparison.isOpen}
+          onClose={() => closeModal('comparison')}
+          items={modals.comparison.items}
+          type={modals.comparison.type}
+        />
+      )}
     </div>
   );
 }

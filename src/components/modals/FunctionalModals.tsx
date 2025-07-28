@@ -29,6 +29,9 @@ interface DocumentViewModalProps {
 }
 
 export function DocumentViewModal({ isOpen, onClose, document }: DocumentViewModalProps) {
+  if (!document) {
+    return null;
+  }
   const [currentView, setCurrentView] = useState<'content' | 'metadata' | 'history'>('content');
 
   const sampleContent = `JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° ${Math.floor(Math.random() * 100) + 1}
@@ -144,6 +147,9 @@ interface DownloadModalProps {
 }
 
 export function DownloadModal({ isOpen, onClose, document }: DownloadModalProps) {
+  if (!document) {
+    return null;
+  }
   const [format, setFormat] = useState('pdf');
   const [isDownloading, setIsDownloading] = useState(false);
 
@@ -219,6 +225,9 @@ interface ComparisonModalProps {
 }
 
 export function ComparisonModal({ isOpen, onClose, items, type }: ComparisonModalProps) {
+  if (!items || items.length === 0) {
+    return null;
+  }
   const getTitle = () => {
     switch (type) {
       case 'versions': return 'Comparaison de versions';
