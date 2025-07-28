@@ -12,6 +12,7 @@ import { ProcedurePopularSearchesTab } from '../ProcedurePopularSearchesTab';
 import { NextGenSearchSection } from '../../search/NextGenSearchSection';
 import { ProcedureSearchHistoryTab } from '../ProcedureSearchHistoryTab';
 import { SavedSearchesEnhanced } from '../../SavedSearchesEnhanced';
+import { DocumentVersionHistory } from '../../version-history/DocumentVersionHistory';
 
 interface TabConfig {
   value: string;
@@ -69,6 +70,11 @@ export function getTabsConfig({
             value: 'historiques', 
             label: 'Comparaison des documents', 
             content: <ProcedureHistoryTab />
+          },
+          { 
+            value: 'versions', 
+            label: 'Historiques des Versions', 
+            content: <DocumentVersionHistory type="procedure" />
           }
         ]
       };

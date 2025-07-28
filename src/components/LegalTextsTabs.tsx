@@ -10,6 +10,7 @@ import { LegalTextsSearchTab } from './legal/LegalTextsSearchTab';
 import LegalTextsApprovalQueue from './legal/LegalTextsApprovalQueue';
 import LegalTextsPendingPublication from './legal/LegalTextsPendingPublication';
 import { ApprovalQueueModal } from './modals/ApprovalQueueModal';
+import { DocumentVersionHistory } from './version-history/DocumentVersionHistory';
 
 interface LegalTextsTabsProps {
   section: string;
@@ -69,6 +70,11 @@ export function LegalTextsTabs({ section, onAddLegalText, onOpenApprovalQueue, o
               value: 'history', 
               label: 'Comparaison des documents', 
               content: <LegalTextHistoryTab />
+            },
+            { 
+              value: 'versions', 
+              label: 'Historiques des Versions', 
+              content: <DocumentVersionHistory type="legal" />
             }
           ]
         };
