@@ -9,6 +9,7 @@ import { CustomReportGeneration } from '@/components/analysis/CustomReportGenera
 import { PredefinedTemplates } from '@/components/analysis/PredefinedTemplates';
 import { PerformanceAnalysis } from '@/components/analysis/PerformanceAnalysis';
 import { ComparativeAnalysis } from '@/components/analysis/ComparativeAnalysis';
+import { DocumentComparison } from '@/components/analysis/DocumentComparison';
 import { AIInsights } from '@/components/analysis/AIInsights';
 import { DashboardsSection } from '@/components/analysis/DashboardsSection';
 import { DependenciesConflictsAnalysis } from '@/components/analysis/DependenciesConflictsAnalysis';
@@ -147,7 +148,20 @@ export function AnalysisReportsSections({ section, language }: AnalysisReportsSe
           </TabsContent>
 
           <TabsContent value="comparative">
-            <ComparativeAnalysis />
+            <Tabs defaultValue="document-comparison" className="space-y-4">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="document-comparison">Comparaison des documents</TabsTrigger>
+                <TabsTrigger value="temporal-analysis">Analyse Comparative Temporelle</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="document-comparison">
+                <DocumentComparison />
+              </TabsContent>
+
+              <TabsContent value="temporal-analysis">
+                <ComparativeAnalysis />
+              </TabsContent>
+            </Tabs>
           </TabsContent>
 
           <TabsContent value="performance">
