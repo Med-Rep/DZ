@@ -67,7 +67,7 @@ export function getTabsConfig({
           },
           { 
             value: 'historiques', 
-            label: 'Historiques des versions', 
+            label: 'Comparaison des documents', 
             content: <ProcedureHistoryTab />
           }
         ]

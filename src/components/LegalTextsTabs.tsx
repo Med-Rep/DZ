@@ -67,7 +67,7 @@ export function LegalTextsTabs({ section, onAddLegalText, onOpenApprovalQueue, o
             },
             { 
               value: 'history', 
-              label: 'Historiques des versions', 
+              label: 'Comparaison des documents', 
               content: <LegalTextHistoryTab />
             }
           ]
