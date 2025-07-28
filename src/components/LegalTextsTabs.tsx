@@ -144,7 +144,8 @@ export function LegalTextsTabs({ section, onAddLegalText, onOpenApprovalQueue, o
         <TabsList className={`grid w-full ${
           tabsConfig.tabs.length === 1 ? 'grid-cols-1' : 
           tabsConfig.tabs.length === 2 ? 'grid-cols-2' : 
-          'grid-cols-3'
+          tabsConfig.tabs.length === 3 ? 'grid-cols-3' :
+          'grid-cols-4'
         }`}>
           {tabsConfig.tabs.map((tab) => (
             <TabsTrigger key={tab.value} value={tab.value} className="text-sm">
